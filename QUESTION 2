@@ -1,0 +1,13 @@
+#Linear Classification – Spam Detection
+import pandas as pd
+from sklearn.linear_model import LogisticRegression
+data = pd.read_csv("spam.csv")
+X = data[['Offer','Free','Money','Winner']]
+y = data['Spam']
+model = LogisticRegression()
+model.fit(X,y)
+prediction = model.predict([[4,2,1,1]])
+if prediction[0]==1:
+ print("Spam Email")
+else:
+ print("Non Spam Email")
