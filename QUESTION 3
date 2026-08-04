@@ -1,0 +1,10 @@
+#Naive Bayes – Flu Prediction
+import pandas as pd
+from sklearn.naive_bayes import GaussianNB
+data = pd.read_csv("flu.csv")
+X = data[['Fever','Cough','Headache']]
+y = data['Flu']
+model = GaussianNB()
+model.fit(X,y)
+prediction = model.predict([[1,1,1]])
+print("Prediction =",prediction[0])
